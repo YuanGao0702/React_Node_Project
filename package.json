@@ -1,0 +1,19 @@
+{
+  "name": "react_node_project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "heroku-postbuild": "cd Client && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  },
+  "engines": {
+    "node": "10.14.2"
+  }
+}
