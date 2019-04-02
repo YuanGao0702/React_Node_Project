@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'Client/build')));
+//app.use(express.static(path.join(__dirname, 'Client/build')));
 
 // Put all API endpoints under '/api'
 app.get('/allusers', function(req, res, next) {
@@ -17,6 +17,7 @@ app.get('/allusers', function(req, res, next) {
   }]);
 });
 
+//send pic
 app.get('/pic', function(req, res,next) {
   res.sendFile(__dirname+'/img/Google.jpg')
 });
