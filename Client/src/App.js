@@ -29,7 +29,7 @@ class App extends Component {
         res.blob().then( blob =>{
           let blobUrl = window.URL.createObjectURL(blob);
           let a = document.getElementById('a_id');
-          let filename = 'Google.jpg';
+          let filename = 'funny.gif';
           a.href = blobUrl;
           a.download = filename;
           //a.click();

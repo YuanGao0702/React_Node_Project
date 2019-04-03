@@ -38,7 +38,7 @@ app.get('/weather',(req,res)=>{
 
 //send pic
 app.get('/pic', function(req, res,next) {
-  res.sendFile(__dirname+'/img/Google.jpg')
+  res.sendFile(__dirname+'/img/funny.gif')
 });
 
 // The "catchall" handler: for any request that doesn't

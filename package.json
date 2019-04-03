@@ -2,9 +2,9 @@
   "name": "react_node_project",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node index.js",
     "heroku-postbuild": "cd Client && npm install && npm run build"
   },
   "author": "",
