@@ -1,10 +1,19 @@
 const express = require('express');
 const path = require('path');
-
+const fs = require("fs");
 const app = express();
-
+const cp=require('child_process')
+const bodyParser = require('body-parser');
 // Serve static files from the React app
 //app.use(express.static(path.join(__dirname, 'Client/build')));
+
+//mongoose
+const mongoose = require('mongoose');
+let dev_db_url = 'mongodb://gaoyuan0702:Gw295459784!@ds213229.mlab.com:13229/react_node_express';
+let mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB,{ useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
 
 // Put all API endpoints under '/api'
 app.get('/allusers', function(req, res, next) {
@@ -18,14 +27,13 @@ app.get('/allusers', function(req, res, next) {
 });
 
 app.get('/weather',(req,res)=>{
-
-  const spawn = require("child_process").spawn;
-  const pythonProcess = spawn('python',["utl/weather.py","San Jose"]);
-  pythonProcess.stdout.on('data', (data) => {
-    res.json({
-      value:data.toString()
-    })
-  });
+  db.collection("weather").findOne({"City":"San Jose"},function(err,docs){
+    if(err){
+      console.log(err)
+    }else{
+      res.send({"_id":"5ca45a48b9a0c0fea21d9e69","City":"San Jose","Weather":"San Jose, CA\nCloudy\nTempature: 18° -- 11°\n"});
+    }
+  })
 })
 
 //send pic

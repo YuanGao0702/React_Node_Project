@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
 
   state = {users: []}
-  weather = {value:"adsfasf"}
+  weather = {}
   componentDidMount() {
     //this.download()
     //this.getAllUsers()
@@ -15,7 +15,7 @@ class App extends Component {
     fetch('/weather')
       .then(res => res.json())
       .then(weather => {
-        this.weather = weather 
+        this.weather = weather
       });
   }
   getAllUsers=()=>{
@@ -42,8 +42,9 @@ class App extends Component {
     if (e.key === 'Enter') {
       //alert("Enter Pressed!")
       var input1 = document.getElementById('input1').value;
-      document.getElementById('text1').innerHTML = input1;
-      document.getElementById('text2').innerHTML = this.weather.value;
+      if(input1=="summer"){
+          document.getElementById('text1').innerHTML = this.weather.Weather;
+      }
     }
   }
   render() {
@@ -51,9 +52,8 @@ class App extends Component {
     return (
       <div className="App">
         <a id="a_id" onclick={this.download()}><img src="/pic"></img></a>
-        <input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input>
+        <p><input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input></p>
         <p id ="text1"></p>
-        <p id ="text2"></p>
         {this.state.users.map(user =>
           <div key={user.id}>{user.username}</div>
         )}

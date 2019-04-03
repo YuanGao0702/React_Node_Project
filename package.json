@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "mongoose": "^5.4.21",
+    "nodemon": "^1.18.10",
+    "parsel": "^0.3.0"
   },
   "engines": {
     "node": "10.14.2"
