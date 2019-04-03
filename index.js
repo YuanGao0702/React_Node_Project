@@ -17,6 +17,17 @@ app.get('/allusers', function(req, res, next) {
   }]);
 });
 
+app.get('/weather',(req,res)=>{
+
+  const spawn = require("child_process").spawn;
+  const pythonProcess = spawn('python',["utl/weather.py","San Jose"]);
+  pythonProcess.stdout.on('data', (data) => {
+    res.json({
+      value:data.toString()
+    })
+  });
+})
+
 //send pic
 app.get('/pic', function(req, res,next) {
   res.sendFile(__dirname+'/img/Google.jpg')

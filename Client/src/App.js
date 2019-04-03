@@ -5,15 +5,24 @@ import './App.css';
 class App extends Component {
 
   state = {users: []}
-  file = ""
+  weather = {value:"adsfasf"}
   componentDidMount() {
+    //this.download()
+    //this.getAllUsers()
+    this.getWeather()
+  }
+  getWeather=()=>{
+    fetch('/weather')
+      .then(res => res.json())
+      .then(weather => {
+        this.weather = weather 
+      });
+  }
+  getAllUsers=()=>{
     fetch('/allusers')
       .then(res => res.json())
       .then(users => this.setState({ users }));
-    //this.download()
-
   }
-
   download=()=>{
     fetch('/pic')
       .then(res =>{
@@ -34,6 +43,7 @@ class App extends Component {
       //alert("Enter Pressed!")
       var input1 = document.getElementById('input1').value;
       document.getElementById('text1').innerHTML = input1;
+      document.getElementById('text2').innerHTML = this.weather.value;
     }
   }
   render() {
@@ -43,7 +53,7 @@ class App extends Component {
         <a id="a_id" onclick={this.download()}><img src="/pic"></img></a>
         <input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input>
         <p id ="text1"></p>
-        <h1>Users</h1>
+        <p id ="text2"></p>
         {this.state.users.map(user =>
           <div key={user.id}>{user.username}</div>
         )}
