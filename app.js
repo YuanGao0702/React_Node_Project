@@ -5,7 +5,7 @@ const app = express();
 const cp=require('child_process')
 const bodyParser = require('body-parser');
 // Serve static files from the React app
-//app.use(express.static(path.join(__dirname, 'Client/build')));
+app.use(express.static(path.join(__dirname, 'Client/build')));
 
 //mongoose
 const mongoose = require('mongoose');
@@ -31,7 +31,7 @@ app.get('/weather',(req,res)=>{
     if(err){
       console.log(err)
     }else{
-      res.send({"_id":"5ca45a48b9a0c0fea21d9e69","City":"San Jose","Weather":"San Jose, CA\nCloudy\nTempature: 18° -- 11°\n"});
+      res.send(docs);
     }
   })
 })
