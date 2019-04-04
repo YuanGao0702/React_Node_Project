@@ -73,9 +73,16 @@ class App extends Component {
       <p>
           <input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input>
       </p>
-      <p  id ="text1">
+      <p class="btn" >
+      
+          <Card  id ="text1" style={{width: '20rem',display:"none"}} bg="dark"   text="white"  >
+          <Card.Header>San Jose Weather</Card.Header>
+          <Card.Body className="text-center">
+            <Card.Text>
+            </Card.Text>
+          </Card.Body>
+          </Card>
       </p>
-    
       <p >
           <Button onClick={this.buttonClicked}variant="dark">Weather</Button>
       </p>
