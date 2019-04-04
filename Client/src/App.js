@@ -4,7 +4,6 @@ import './App.css';
 import { Button } from 'react-bootstrap';
 import { Badge } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
@@ -75,7 +74,7 @@ class App extends Component {
           <input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input>
       </p>
       <p class="btn" >
-          <Card  id ="text1" style={{width: '10rem',display:"none"}} bg="dark"   text="white"  >
+          <Card  id ="text1" style={{width: '20rem',display:"none"}} bg="dark"   text="white"  >
           <Card.Header>San Jose Weather</Card.Header>
           <Card.Body className="text-center">
             <Card.Text>
