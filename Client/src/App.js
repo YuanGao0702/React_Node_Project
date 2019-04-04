@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from 'react-bootstrap';
+import { Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
@@ -62,13 +66,32 @@ class App extends Component {
 
     return (
       <div className="App">
-        <a id="a_id" onclick={this.download}><img src="/pic"></img></a>
-        <p><input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input></p>
-        <p id ="text1" style={{display:"none"}}></p>
-        <button onClick={this.buttonClicked}>Weather</button>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
+      <p>
+      </p>
+      <p>
+          <a id="a_id" onclick={this.download}><img src="/pic"></img></a>
+      </p>
+      <p>
+          <input type = "text" id = "input1" onKeyPress={this._handleKeyPress}></input>
+      </p>
+      <p class="btn" >
+          <Card  id ="text1" style={{width: '10rem',display:"none"}} bg="dark"   text="white"  >
+          <Card.Header>San Jose Weather</Card.Header>
+          <Card.Body className="text-center">
+            <Card.Text>
+            </Card.Text>
+          </Card.Body>
+          </Card>
+      </p>
+      <p >
+          <Button onClick={this.buttonClicked}variant="dark">Weather</Button>
+      </p>
+      <p>
+          {this.state.users.map(user =>
+            <div key={user.id}>{user.username}</div>
+          )}
+      </p>
+
       </div>
     );
   }
